@@ -1,0 +1,16 @@
+{
+    "name": "hscomp/photoable",
+    "description": "Assign one or many photos to any Eloquent model",
+    "license": "MIT",
+    "keywords": ["laravel", "photos", "upload"],
+    "authors": [
+        {
+            "name": "Petr Zavicak",
+            "email": "zavicak@hscomputers.cz"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.6.0"
+    }
+}

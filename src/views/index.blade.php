@@ -1,0 +1,1 @@
+Photo uploader Package ready, {{ $name }}!
