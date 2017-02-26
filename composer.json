@@ -1,6 +1,5 @@
 {
     "name": "hscomp/photoable",
-    "version": "1.0.0",
     "description": "Assign one or many photos to any Eloquent model",
     "license": "MIT",
     "keywords": ["laravel", "photos", "upload"],
@@ -10,6 +9,12 @@
             "email": "zavicak@hscomputers.cz"
         }
     ],
+    "autoload": {
+        "psr-0": {
+            "Hscomp\\Photoable": "src/"
+        }
+    },
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.6.0"
     }
