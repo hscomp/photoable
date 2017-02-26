@@ -1,35 +1,16 @@
 <?php
 
-namespace Hscomp\Photoable;
+namespace Hscomp\Photoable\Traits;
 
-use App\Models\Photo;
-use App\Services\FileUploaders\PhotoUploader;
+use Hscomp\Photoable\Models\Photo;
+use Hscomp\Photoable\PhotoUploader;
 use Illuminate\Http\UploadedFile;
 
 trait Photoable
 {
     private static $instance = null;
 
-    public function getDefaultPhoto($what = '', $incthumb = true)
-    {
-        $url = '';
-        $what = ( $what == '' ? get_called_class() : $what );
-        $thumb = $incthumb ? '_thumb' : '';
-
-        switch ($what)
-        {
-            case 'App\\Models\\Player':
-                return config('app.url') . '/images/team/players/player-default-avatar.png';
-            break;
-            case 'App\\Models\\Tournament':
-                return config('app.url') . '/images/_default/tourney-1.jpg';
-            break;
-        }
-
-        return '';
-    }
-
-    public function savePhoto( UploadedFile $uploaded_file, $section_photoable, $withThumbs = true, $removePrevious = false)
+    public function savePhoto($section_photoable, UploadedFile $uploaded_file, $withThumbs = true, $removePrevious = false)
     {
         $config = [];
         if (isset($this->photoable['settings'])) {
@@ -93,6 +74,25 @@ trait Photoable
         }
 
         return true;
+    }
+
+    public function getDefaultPhoto($what = '', $incthumb = true)
+    {
+        $url = '';
+        $what = ( $what == '' ? get_called_class() : $what );
+        $thumb = $incthumb ? '_thumb' : '';
+
+        switch ($what)
+        {
+            case 'App\\Models\\Player':
+                return config('app.url') . '/images/team/players/player-default-avatar.png';
+                break;
+            case 'App\\Models\\Tournament':
+                return config('app.url') . '/images/_default/tourney-1.jpg';
+                break;
+        }
+
+        return '';
     }
 
     public function getPhotoableErrors()
