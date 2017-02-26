@@ -1,4 +1,4 @@
-Laravel Photoable package
+Laravel Photoable
 =========================
 
 ## Installation
